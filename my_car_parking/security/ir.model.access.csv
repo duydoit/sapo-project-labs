@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_car_parking_user,parking.parking.user,model_parking_parking,base.group_user,1,0,0,0
+access_car_feature_user,car.feature.user,model_car_feature,base.group_user,1,0,0,0
+
+access_car_car_user,car.car.user,model_car_cars,my_car_parking.group_cars_user,1,0,0,0
+access_car_car_manager,car.car.manager,model_car_cars,my_car_parking.group_cars_manager,1,1,1,0
+access_car_car_supermanager,car.car.supermanager,model_car_cars,my_car_parking.group_cars_supermanager,1,1,1,1
+access_car_feature_supermanager,car.feature.supermanager,model_car_feature,my_car_parking.group_cars_supermanager,1,1,1,1
+access_car_parking_supermanager,parking.parking.supermanager,model_parking_parking,my_car_parking.group_cars_supermanager,1,1,1,1
+access_car_feature_manager,car.feature.manager,model_car_feature,my_car_parking.group_cars_manager,1,0,0,0

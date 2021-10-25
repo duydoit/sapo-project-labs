@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- (Form View )-->
+        <record id="feature_form_view_list" model="ir.ui.view">
+            <field name="name"> feature.form.view.list</field>
+            <field name="model">car.feature</field>
+            <field name="arch" type="xml">
+                <form string="Cars Form">
+                    <field name="name" string="Tên feature"/>
+                </form>
+            </field>
+        </record>
+        <!-- Extend-->
+
+        <!-- Tree View -->
+        <record model="ir.ui.view" id="feature_tree_view_list">
+            <field name="name">feature.tree.view.list</field>
+            <field name="model">car.feature</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" string="Tên Feature"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Action-->
+        <record model="ir.actions.act_window" id="action_feature_list">
+            <field name="name">My List Feature</field>
+            <field name="res_model">car.feature</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p> Vui lòng tạo dữ liệu mới</p>
+            </field>
+        </record>
+
+        <!--Menu-->
+        <menuitem name="Feature" parent="my_car_parking.menu_cars" id="menu_cars_feature" sequence="30"
+                  action="my_car_parking.action_feature_list"/>
+    </data>
+</odoo>

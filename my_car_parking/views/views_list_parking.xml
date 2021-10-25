@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <data>
+        <!-- (Form View )-->
+        <record id="parking_form_view_list" model="ir.ui.view">
+            <field name="name"> parking.form.view.list</field>
+            <field name="model">parking.parking</field>
+            <field name="arch" type="xml">
+                <form string="Cars Form">
+                    <group>
+                        <group>
+                            <field name="name" string="Tên Parking" required="True"/>
+                        </group>
+                        <group>
+                            <field name="active"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="List Cars" name="list cars">
+                            <field name="car_ids">
+                                <tree editable="button">
+                                    <field name="name" string="Tên Xe"/>
+                                    <field name="owner_id" string="Chủ xe"/>
+                                    <field name="status" string="Tình trạng"/>
+                                </tree>
+                                <form>
+                                    <field name="name" string="Tên xe"/>
+                                    <field name="owner_id" string="Chủ xe"/>
+                                    <field name="status" string="Tình trạng"/>
+                                </form>
+                            </field>
+                        </page>
+                    </notebook>
+
+                </form>
+            </field>
+        </record>
+        <!-- Extend-->
+
+        <!-- Tree View -->
+        <record model="ir.ui.view" id="parking_tree_view_list">
+            <field name="name">parking.tree.view.list</field>
+            <field name="model">parking.parking</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" string="Tên Parking"/>
+                    <field name="car_ids"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--Action-->
+        <record model="ir.actions.act_window" id="action_parking_list">
+            <field name="name">My List View</field>
+            <field name="res_model">parking.parking</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p> Vui lòng tạo dữ liệu mới</p>
+            </field>
+        </record>
+
+        <!--Menu-->
+        <menuitem name="Parking" parent="my_car_parking.menu_cars" id="menu_cars_parking" sequence="20"
+                  action="my_car_parking.action_parking_list"/>
+    </data>
+</odoo>
